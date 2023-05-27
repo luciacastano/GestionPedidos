@@ -157,8 +157,13 @@ public class GestionPedidos {
 			
 			int prod;
 			Pedido pedido = new Pedido();
+			Stockage stockage = new Stockage(); // creamos instancia
 
+			int stockRestante = 0;
 			do {
+				if (stockRestante < 0) {
+					break;
+				}else {
 				System.out.println("Inserte valor del pedido");
 				prod = sc.nextInt();
 
@@ -180,23 +185,54 @@ public class GestionPedidos {
 					break;
 				}
 
+				/**
+				 * comprobacion stock productos
+				 * se le resta 30 al stock y, si es menor de 5, sale un mensaje en pantalla.
+				 */
 				case 1: {
 					System.out.println("Cantidad del " + producto1.getNombre() + "deseada");
-					int suma = sc.nextInt();
-					suma = producto1.setCantidad(suma);
+					int cantidad = sc.nextInt();
+					int i;
+					producto1.realizarPedido(cantidad);
+					producto1.setCantidad(cantidad);
+					
+					stockRestante = stockage.mostrarStock(producto1) - cantidad;
 
+					if (stockRestante > 5 && stockRestante <= 30) {
+						System.out.println("Stock restante de " + producto1.getNombre() + ": " + stockRestante);
+					} else if (stockRestante <= 5 && stockRestante >= 0) {
+						System.out.println("Quedan menos de 5 unidades de " + producto1.getNombre());
+					} else {
+						System.out.println("No hay suficiente Stock");
+						break;
+					}
+					
 					if (pedido.getProducto1() == null) {
 						pedido.agregarProducto1(producto1);
 					} else if (pedido.getProducto2() == null) {
 						pedido.agregarProducto2(producto1);
-					}
+					}	
+					
 					break;
 				}
 				case 2: {
 					System.out.println("Cantidad del " + producto2.getNombre() + "deseada");
-					int suma = sc.nextInt();
-					suma = producto2.setCantidad(suma);
+					int cantidad = sc.nextInt();
+					int i;
+					producto2.realizarPedido(cantidad);
+					producto2.setCantidad(cantidad);
 
+					stockRestante = stockage.mostrarStock(producto2) - cantidad;
+					
+					if (stockRestante > 5 && stockRestante <= 30) {
+						System.out.println("Stock restante de " + producto1.getNombre() + ": " + stockRestante);
+					} else if (stockRestante <= 5 && stockRestante >= 0) {
+						System.out.println("Quedan menos de 5 unidades de " + producto1.getNombre());
+					} else {
+						System.out.println("No hay suficiente Stock");
+						break;
+					}
+					
 					if (pedido.getProducto1() == null) {
 						pedido.agregarProducto1(producto2);
 					} else if (pedido.getProducto2() == null) {
@@ -206,9 +242,21 @@ public class GestionPedidos {
 				}
 				case 3: {
 					System.out.println("Cantidad del " + producto3.getNombre() + "deseada");
-					int suma = sc.nextInt();
-					suma = producto3.setCantidad(suma);
+					int cantidad = sc.nextInt();
+					int i;
+					producto3.realizarPedido(cantidad);
+					producto3.setCantidad(cantidad);
 
+					stockRestante = stockage.mostrarStock(producto3) - cantidad;
+					
+					if (stockRestante > 5 && stockRestante <= 30) {
+						System.out.println("Stock restante de " + producto1.getNombre() + ": " + stockRestante);
+					} else if (stockRestante <= 5 && stockRestante >= 0) {
+						System.out.println("Quedan menos de 5 unidades de " + producto1.getNombre());
+					} else {
+						System.out.println("No hay suficiente Stock");
+					}
+					
 					if (pedido.getProducto1() == null) {
 						pedido.agregarProducto1(producto3);
 					} else if (pedido.getProducto2() == null) {
@@ -218,9 +266,21 @@ public class GestionPedidos {
 				}
 				case 4: {
 					System.out.println("Cantidad del " + producto4.getNombre() + "deseada");
-					int suma = sc.nextInt();
-					suma = producto4.setCantidad(suma);
+					int cantidad = sc.nextInt();
+					int i;
+					producto4.realizarPedido(cantidad);
+					producto4.setCantidad(cantidad);
 
+					stockRestante = stockage.mostrarStock(producto4) - cantidad;
+
+					if (stockRestante > 5 && stockRestante <= 30) {
+						System.out.println("Stock restante de " + producto1.getNombre() + ": " + stockRestante);
+					} else if (stockRestante <= 5 && stockRestante >= 0) {
+						System.out.println("Quedan menos de 5 unidades de " + producto1.getNombre());
+					} else {
+						System.out.println("No hay suficiente Stock");
+					}
+					
 					if (pedido.getProducto1() == null) {
 						pedido.agregarProducto1(producto4);
 					} else if (pedido.getProducto2() == null) {
@@ -230,9 +290,21 @@ public class GestionPedidos {
 				}
 				case 5: {
 					System.out.println("Cantidad del " + producto5.getNombre() + "deseada");
-					int suma = sc.nextInt();
-					suma = producto5.setCantidad(suma);
+					int cantidad = sc.nextInt();
+					int i;
+					producto5.realizarPedido(cantidad);
+					producto5.setCantidad(cantidad);
 
+					stockRestante = stockage.mostrarStock(producto5) - cantidad;
+
+					if (stockRestante > 5 && stockRestante <= 30) {
+						System.out.println("Stock restante de " + producto1.getNombre() + ": " + stockRestante);
+					} else if (stockRestante <= 5 && stockRestante >= 0) {
+						System.out.println("Quedan menos de 5 unidades de " + producto1.getNombre());
+					} else {
+						System.out.println("No hay suficiente Stock");
+					}
+					
 					if (pedido.getProducto1() == null) {
 						pedido.agregarProducto1(producto5);
 					} else if (pedido.getProducto2() == null) {
@@ -244,10 +316,12 @@ public class GestionPedidos {
 				default:
 					break;
 				}
-			} while (prod != 0);
-		}
+			}
+		} while (prod != 0);
+	}
 
 		PasarelaDePago efectivo = new PasarelaDePago();
 		efectivo.efectivopago(totalEfectivo);
 	}
 }
+
