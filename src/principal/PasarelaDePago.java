@@ -53,7 +53,7 @@ public class PasarelaDePago {
 
 
 	/**
-	 * Primer método de pago, efectivo
+	 * Primer método de pago, efectivo()
 	 * 
 	 * @param efectivo1
 	 */
@@ -192,7 +192,7 @@ public class PasarelaDePago {
 
 
 	/**
-	 * Segundo método de pago, trajeta
+	 * Segundo método de pago, trajeta()
 	 * 
 	 * @param numeroTarjeta
 	 */
@@ -277,7 +277,7 @@ public class PasarelaDePago {
 
 
 	/**
-	 * Tercer método de pago, cuenta
+	 * Tercer método de pago, cuenta()
 	 * 
 	 * @param numeroCuenta
 	 */

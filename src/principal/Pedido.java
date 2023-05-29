@@ -141,7 +141,7 @@ public class Pedido {
 	private boolean pagoRealizado = false;
 
 	/**
-	 * Método pagar, indica si el pago ha sido realizado
+	 * Método pagar(), indica si el pago ha sido realizado
 	 * 
 	 * @param tipoPago
 	 */
@@ -153,7 +153,7 @@ public class Pedido {
 
 
 	/**
-	 * Método agregarCliente, añade el cliente al crearlo
+	 * Método agregarCliente(), añade el cliente al crearlo
 	 * 
 	 * @param cliente
 	 */
@@ -163,7 +163,7 @@ public class Pedido {
 
 
 	/**
-	 * Método agregarProducto1, añade el producto al crearlo
+	 * Método agregarProducto1(), añade el producto al crearlo
 	 * 
 	 * @param producto1
 	 */
@@ -173,7 +173,7 @@ public class Pedido {
 
 
 	/**
-	 * Método agregarProducto2, añade el producto al crearlo
+	 * Método agregarProducto2(), añade el producto al crearlo
 	 * 
 	 * @param producto2
 	 */
@@ -185,7 +185,7 @@ public class Pedido {
 
 
 	/**
-	 * Método eliminarProducto, borra el producto
+	 * Método eliminarProducto(), borra el producto
 	 * 
 	 * @param producto
 	 * @return
@@ -197,8 +197,8 @@ public class Pedido {
 
 
 	/**
-	 * Método generarCodigoPedido, crea un código al finalizar un pedido
-	 * y nos muestra la fecha
+	 * Método generarCodigoPedido(), crea un código al finalizar un pedido y nos
+	 * muestra la fecha
 	 * 
 	 * @return
 	 */
@@ -209,7 +209,7 @@ public class Pedido {
 
 
 	/**
-	 * Método toString, imprime el ticket por pantalla al realizar el pedido
+	 * Método toString(), imprime el ticket por pantalla al realizar el pedido
 	 */
 	@Override
 	public String toString() {
@@ -225,7 +225,7 @@ public class Pedido {
 
 	
 	/**
-	 * Método toString2, encargado de calcular el valor de los productos
+	 * Método toString2(), encargado de calcular el valor de los productos
 	 * 
 	 * @return
 	 */

@@ -1,6 +1,7 @@
 package principal;
 
 import java.sql.Date;
+import java.util.Scanner;
 
 /**
  * 
@@ -120,11 +121,88 @@ public class Cliente {
 
 
 	/**
-	 * Método realizarPedido
+	 * Método realizarPedido()
 	 * se encargará de que, al realizar un pedido, se añada al historial del cliente
 	 * @param pedido
 	 */
 	public void realizarPedido(Pedido pedido) {
 		this.historial = this.historial + pedido.getCodigoPedido();
+	}
+
+	
+	// creamos las variables a utilizar en los métodos posteriores
+	String telefono1;
+	String telefono2;
+	String telefono3;
+	
+	/**
+	 * Método creaCliente()
+	 * for que nos va a permitir escribir los datos de clientes de manera más óptima 
+	 */
+	public void creaCliente() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("#####MENU INICIAL#####" + "\nVamos a crear 3 clientes"
+				+ "\n¡ADVERTENCIA! no pueden haber dos clientes con el mismo numero de telefono");
+
+		// creamos primer cliente
+		System.out.println("\n##Primer cliente##");
+		System.out.print("Nombre: ");
+		String nombre1 = sc.nextLine();
+		System.out.print("Apellidos: ");
+		String apellido1 = sc.nextLine();
+		System.out.print("Telefono: ");
+		telefono1 = sc.nextLine();
+		System.out.print("Direccion: ");
+		String direccion1 = sc.nextLine();
+
+		// creamos segundo cliente
+		System.out.println("\n##Segundo cliente##");
+		System.out.print("Nombre: ");
+		String nombre2 = sc.nextLine();
+		System.out.print("Apellidos: ");
+		String apellido2 = sc.nextLine();
+		System.out.print("Telefono: ");
+		telefono2 = sc.nextLine();
+		System.out.print("Direccion: ");
+		String direccion2 = sc.nextLine();
+
+		// creamos tercer cliente
+		System.out.println("\n##Tercer cliente##");
+		System.out.print("Nombre: ");
+		String nombre3 = sc.nextLine();
+		System.out.print("Apellidos: ");
+		String apellido3 = sc.nextLine();
+		System.out.print("Telefono: ");
+		telefono3 = sc.nextLine();
+		System.out.print("Direccion: ");
+		String direccion3 = sc.nextLine();
+	}
+	
+	
+	/**
+	 * Método valCliente()
+	 * va a decir si un cliente es o no existente
+	 */
+	public void valCliente() {
+		creaCliente(); // Llamamos al método para obtener los teléfonos
+
+        Scanner sc = new Scanner(System.in);
+		System.out.print("Ingrese un numero de telefono: ");
+        String telefono = sc.nextLine();
+
+        if (telefono.equals(telefono1)) {
+            System.out.println("Bienvenido cliente1:");
+            // cliente1 = true;  // No se menciona qué son las variables cliente1, cliente2 y cliente3
+        } else if (telefono.equals(telefono2)) {
+            System.out.println("Bienvenido cliente2:");
+            // cliente2 = true;
+        } else if (telefono.equals(telefono3)) {
+            System.out.println("Bienvenido cliente3:");
+            // cliente3 = true;
+        } else {
+			System.out.println("El cliente no existe");
+            // El número de teléfono no coincide con ninguno de los clientes creados
+        }
 	}
 }
