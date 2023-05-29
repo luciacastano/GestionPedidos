@@ -100,6 +100,8 @@ public class Producto {
 		nombresProductos[0] = prod1; // almacena el nombre
 		preciosProductos[0] = prodprec1; // almacena el precio
 
+		TratamientoFicheros.EscribeFicheroProducto(prod1, prodprec1);
+
 		// creamos segundo producto
 		System.out.println("\n##Segundo producto##");
 		System.out.println("Nombre: ");
@@ -108,6 +110,8 @@ public class Producto {
 		double prodprec2 = sc.nextDouble();
 		nombresProductos[1] = prod2; // almacena el nombre
 		preciosProductos[1] = prodprec2; // almacena el precio
+
+		TratamientoFicheros.EscribeFicheroProducto(prod2, prodprec2);
 
 		// creamos tercer producto
 		System.out.println("\n##Tercer producto##");
@@ -118,6 +122,8 @@ public class Producto {
 		nombresProductos[2] = prod3; // almacena el nombre
 		preciosProductos[2] = prodprec3; // almacena el precio
 
+		TratamientoFicheros.EscribeFicheroProducto(prod3, prodprec3);
+
 		// creamos cuarto producto
 		System.out.println("\n##Cuarto producto##");
 		System.out.println("Nombre: ");
@@ -127,6 +133,8 @@ public class Producto {
 		nombresProductos[3] = prod4; // almacena el nombre
 		preciosProductos[3] = prodprec4; // almacena el precio
 
+		TratamientoFicheros.EscribeFicheroProducto(prod4, prodprec4);
+
 		// creamos quinto producto
 		System.out.println("\n##Producto##");
 		System.out.println("Nombre: ");
@@ -135,6 +143,8 @@ public class Producto {
 		double prodprec5 = sc.nextDouble();
 		nombresProductos[4] = prod5; // almacena el nombre
 		preciosProductos[4] = prodprec5; // almacena el precio
+
+		TratamientoFicheros.EscribeFicheroProducto(prod5, prodprec5);
 	}
 
 

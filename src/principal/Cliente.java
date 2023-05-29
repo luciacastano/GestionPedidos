@@ -156,6 +156,8 @@ public class Cliente {
 		System.out.print("Direccion: ");
 		String direccion1 = sc.nextLine();
 
+		TratamientoFicheros.EscribeFicheroCliente(nombre1, apellido1, telefono1, direccion1);
+
 		// creamos segundo cliente
 		System.out.println("\n##Segundo cliente##");
 		System.out.print("Nombre: ");
@@ -167,6 +169,8 @@ public class Cliente {
 		System.out.print("Direccion: ");
 		String direccion2 = sc.nextLine();
 
+		TratamientoFicheros.EscribeFicheroCliente(nombre2, apellido2, telefono2, direccion2);
+
 		// creamos tercer cliente
 		System.out.println("\n##Tercer cliente##");
 		System.out.print("Nombre: ");
@@ -177,6 +181,8 @@ public class Cliente {
 		telefono3 = sc.nextLine();
 		System.out.print("Direccion: ");
 		String direccion3 = sc.nextLine();
+
+		TratamientoFicheros.EscribeFicheroCliente(nombre3, apellido3, telefono3, direccion3);
 	}
 	
 	
