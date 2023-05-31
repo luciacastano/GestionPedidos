@@ -101,6 +101,7 @@ public class Producto {
 		preciosProductos[0] = prodprec1; // almacena el precio
 
 		TratamientoFicheros.EscribeFicheroProducto(prod1, prodprec1);
+		TestConexion.consulta_insertProducto(prod1, prodprec1);
 
 		// creamos segundo producto
 		System.out.println("\n##Segundo producto##");
@@ -112,6 +113,7 @@ public class Producto {
 		preciosProductos[1] = prodprec2; // almacena el precio
 
 		TratamientoFicheros.EscribeFicheroProducto(prod2, prodprec2);
+		TestConexion.consulta_insertProducto(prod2, prodprec2);
 
 		// creamos tercer producto
 		System.out.println("\n##Tercer producto##");
@@ -123,6 +125,7 @@ public class Producto {
 		preciosProductos[2] = prodprec3; // almacena el precio
 
 		TratamientoFicheros.EscribeFicheroProducto(prod3, prodprec3);
+		TestConexion.consulta_insertProducto(prod3, prodprec3);
 
 		// creamos cuarto producto
 		System.out.println("\n##Cuarto producto##");
@@ -134,6 +137,7 @@ public class Producto {
 		preciosProductos[3] = prodprec4; // almacena el precio
 
 		TratamientoFicheros.EscribeFicheroProducto(prod4, prodprec4);
+		TestConexion.consulta_insertProducto(prod4, prodprec4);
 
 		// creamos quinto producto
 		System.out.println("\n##Producto##");
@@ -145,6 +149,7 @@ public class Producto {
 		preciosProductos[4] = prodprec5; // almacena el precio
 
 		TratamientoFicheros.EscribeFicheroProducto(prod5, prodprec5);
+		TestConexion.consulta_insertProducto(prod5, prodprec5);
 	}
 
 

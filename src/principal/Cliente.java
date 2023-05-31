@@ -157,6 +157,7 @@ public class Cliente {
 		String direccion1 = sc.nextLine();
 
 		TratamientoFicheros.EscribeFicheroCliente(nombre1, apellido1, telefono1, direccion1);
+		TestConexion.consulta_insertCliente(nombre1, apellido1, telefono1, direccion1);
 
 		// creamos segundo cliente
 		System.out.println("\n##Segundo cliente##");
@@ -170,6 +171,7 @@ public class Cliente {
 		String direccion2 = sc.nextLine();
 
 		TratamientoFicheros.EscribeFicheroCliente(nombre2, apellido2, telefono2, direccion2);
+		TestConexion.consulta_insertCliente(nombre2, apellido2, telefono2, direccion2);
 
 		// creamos tercer cliente
 		System.out.println("\n##Tercer cliente##");
@@ -183,6 +185,7 @@ public class Cliente {
 		String direccion3 = sc.nextLine();
 
 		TratamientoFicheros.EscribeFicheroCliente(nombre3, apellido3, telefono3, direccion3);
+		TestConexion.consulta_insertCliente(nombre3, apellido3, telefono3, direccion3);
 	}
 	
 	

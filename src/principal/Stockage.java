@@ -6,8 +6,8 @@ public class Stockage {
 	 * Atributos declarados a utilizar
 	 */
 	int cantidad1 = 0;
-	private int stock;
-	private int stock1[] = new int[30];
+	int stock;
+	int stock1[] = new int[30];
 
 
 	/**
