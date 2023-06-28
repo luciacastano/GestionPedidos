@@ -27,8 +27,8 @@ public class GestionPedidos {
 
 
 
-		PasarelaDePago efectivo = new PasarelaDePago();
-		efectivo.efectivopago(totalEfectivo);
+		PasarelaDePago pasarela = new PasarelaDePago();
+		pasarela.elegirpago(pasarela, sc);
 
 	}
 }

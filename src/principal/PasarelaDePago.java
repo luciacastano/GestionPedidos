@@ -1,301 +1,157 @@
 package principal;
 
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PasarelaDePago {
 
-	/**
-	 * Atributos declarados a utilizar
-	 */
-	double importe;
+	// Atributos
+	private double importe;
 	String codigoPago;
-	
-	
-	/**
-	 * Constructor vacío
-	 */
-	public PasarelaDePago() {
 		
-	}
-	
-	
-	/**
-	 * Constructor con parámetros
-	 * 
-	 * @param importe
-	 * @param codigoPago
-	 */
-	public PasarelaDePago(double importe) {
-		this.importe = importe;
-		this.codigoPago = this.generarCodigoPago();
-	}
-
-
-	/**
-	 * Getters and Setters
-	 */
-	public double getImporte() {
-		return importe;
-	}
-
-	public void setImporte(double importe) {
-		this.importe = importe;
-	}
-
-	public String getCodigoPago() {
-		return codigoPago;
-	}
-
-	public void setCodigoPago(String codigoPago) {
-		this.codigoPago = codigoPago;
-	}
-
-
-	/**
-	 * Primer método de pago, efectivo()
-	 * 
-	 * @param efectivo1
-	 */
-	public void efectivopago(Double efectivo1) {
-		this.importe = efectivo1;
-		this.codigoPago = this.generarCodigoPago();
-
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Manera de pago: efectivo");
-
-		double cantidad = efectivo1;
-		System.out.println("Total de " + cantidad + "€");
-		System.out.println("Necesitas:");
-
-		if (cantidad >= 50) {
-			int i = 0;
-			while (cantidad >= 50) {
-
-				cantidad = cantidad - 50;
-				i++;
-			}
-			System.out.println(i + " billetes de 50€");
+	// Constructor
+	public PasarelaDePago() {
+		this.importe = 0;
+		this.codigoPago = String.valueOf((new Date()).getTime());
 		}
 
-		if (cantidad <= 50 && cantidad >= 20) {
-			int v = 0;
-			while (cantidad >= 20) {
-
-				cantidad = cantidad - 20;
-				v++;
-			}
-			System.out.println(v + " billetes de 20€");
+	// Metodo para adquirir el codigo del pago
+	public void CodigoPago(String codigoPago1) {
+		codigoPago = String.valueOf((new Date()).getTime());
+		codigoPago1 = codigoPago;
+		System.out.println(codigoPago1);
 		}
 
-		if (cantidad <= 20 && cantidad >= 10) {
-			int d = 0;
-			while (cantidad >= 10) {
+	// Metodo para el pago en efectivo
+	public void pagoTarjeta(Scanner sc) {
+		try {
+			System.out.println("Seleccion de pago con tarjeta");
+			System.out.println("Inserte el precio a pagar");
+			double pago2 = sc.nextDouble();
 
-				cantidad = cantidad - 10;
-				d++;
-			}
-			System.out.println(d + " billetes de 10€");
-		}
+			Exceptions.validarImportePago(pago2);
 
-		if (cantidad <= 10 && cantidad >= 5) {
-			int e = 0;
-			while (cantidad >= 5) {
+			if (pago2 >= importe) {
+				System.out.println("Numeros de tarjeta en su correcto orden");
+				String numerotar1 = sc.nextLine();
+				numerotar1 = sc.nextLine();
 
-				cantidad = cantidad - 5;
-				e++;
-			}
-			System.out.println(e + " billetes de 5€");
-		}
+				String numerotar = numerotar1.replaceAll("\\s", "");
+				System.out.println(numerotar);
+				Exceptions.validarTarjeta(numerotar);
 
-		if (cantidad <= 5 && cantidad >= 2) {
-			int r = 0;
-			while (cantidad >= 2) {
-
-				cantidad = cantidad - 2;
-				r++;
-			}
-			System.out.println(r + " monedas de 2€");
-		}
-
-		if (cantidad <= 2 && cantidad >= 1) {
-			int t = 0;
-			while (cantidad >= 1) {
-
-				cantidad = cantidad - 1;
-				t++;
-			}
-			System.out.println(t + " monedas de 1€");
-		}
-
-		if (cantidad <= 1 && cantidad >= 0.5) {
-			int q = 0;
-			while (cantidad >= 0.5) {
-
-				cantidad = (float) (cantidad - 0.5);
-				q++;
-			}
-			System.out.println(q + " monedas de 0.50€");
-		}
-
-		if (cantidad <= 0.5 && cantidad >= 0.2) {
-			int y = 0;
-			while (cantidad >= 0.2) {
-
-				cantidad = (float) (cantidad - 0.2);
-				y++;
-			}
-			System.out.println(y + " monedas de 0.20€");
-		}
-
-		if (cantidad <= 0.2 && cantidad >= 0.1) {
-			int u = 0;
-			while (cantidad >= 0.1) {
-
-				cantidad = (float) (cantidad - 0.1);
-				u++;
-			}
-			System.out.println(u + " monedas de 0.10€");
-		}
-
-		if (cantidad <= 0.1 && cantidad >= 0.05) {
-			int p = 0;
-			while (cantidad >= 0.05) {
-
-				cantidad = (float) (cantidad - 0.05);
-				p++;
-			}
-			System.out.println(p + " monedas de 0.05€");
-		}
-
-		if (cantidad <= 0.05 && cantidad >= 0.02) {
-			int o = 0;
-			while (cantidad >= 0.02) {
-
-				cantidad = (float) (cantidad - 0.02);
-				o++;
-			}
-			System.out.println(o + " monedas de 0.02€");
-		}
-
-		if (cantidad <= 0.02 && cantidad >= 0.01) {
-			int l = 0;
-			while (cantidad >= 0.01) {
-
-				cantidad = (float) (cantidad - 0.01);
-				l++;
-			}
-			System.out.println(l + " monedas de 0.01€");
-
-		}
-	}
-
-
-	/**
-	 * Segundo método de pago, trajeta()
-	 * 
-	 * @param numeroTarjeta
-	 */
-	public void tarjeta(String numeroTarjeta) {
-
-		this.importe = 0.0;
-		this.codigoPago = this.generarCodigoPago();
-		System.out.println("Manera de pago: tarjeta");
-
-		System.out.println("Escriba el numero de su tarjeta");
-		Scanner sc = new Scanner(System.in);
-		String tarjeta = sc.nextLine();
-		char metPago = tarjeta.charAt(0);
-
-		switch (metPago) {
-		case '3': // Visa/MasterCard -->16 dígitos separados de 4 en 4
-			System.out.println("Tarjeta American Express");
-			if (metPago == '3') {
-				String cadenaString = tarjeta;
-				int tamano = cadenaString.length();
-
-				if (tamano == 16) {
-					String dis1 = cadenaString.substring(0, 4);
-					String dis2 = cadenaString.substring(4, 8);
-					String dis3 = cadenaString.substring(8, 12);
-					String dis4 = cadenaString.substring(12, 16);
-
-					System.out.println("El numero de su tarjeta es " + dis1 + " " + dis2 + " " + dis3 + " " + dis4);
-				} else {
-					System.out.println("Numero de tarjeta no valido");
-				}
+				System.out.println("Pago realizado. Codigo del mismo: " + codigoPago);
+				importe = 0;
+				codigoPago = String.valueOf((new Date()).getTime());
 			} else {
-				System.out.println("Numero de tarjeta no valido");
+				System.out.println("Cantidad igual o mayor a la del ticket." + "\nPruebe de nuevo");
 			}
-			break;
+		} catch (Exceptions.ImportePagoException e) {
+			System.out.println(e.getMessage());
 
-		case '4':
-			System.out.println("Tarjeta Visa");
-			if (metPago == '4') {
-				String cadenaString = tarjeta;
-				int tamano = cadenaString.length();
+		} catch (InputMismatchException e) {
+			System.out.println("Valor inválido. Ingrese un número válido.");
 
-				if (tamano == 16) {
-					String dis1 = cadenaString.substring(0, 4);
-					String dis2 = cadenaString.substring(4, 8);
-					String dis3 = cadenaString.substring(8, 12);
-					String dis4 = cadenaString.substring(12, 16);
-
-					System.out.println("El numero de su tarjeta es " + dis1 + " " + dis2 + " " + dis3 + " " + dis4);
-				} else {
-					System.out.println("Numero de tarjeta no valido");
-				}
-			} else {
-				System.out.println("Numero de tarjeta no valido");
+		} catch (Exceptions.TarjetaInvalidaException e) {
+			System.out.println(e.getMessage());
 			}
-			break;
-
-		case '5': // American Express --> 15 dígitos y separados por 4, 6 y 5
-			System.out.println("Tarjeta Mastercard");
-			if (metPago == '5') {
-				String cadenaString = tarjeta;
-				int tamano = cadenaString.length();
-
-				if (tamano == 15) {
-					String dis1 = cadenaString.substring(0, 4);
-					String dis2 = cadenaString.substring(4, 10);
-					String dis3 = cadenaString.substring(10, 15);
-
-					System.out.println("El numero de su tarjeta es " + dis1 + " " + dis2 + " " + dis3);
-				} else {
-					System.out.println("Numero de tarjeta no valido");
-				}
-			} else {
-				System.out.println("Numero de tarjeta no valido");
-			}
-			break;
-
-		default:
-			System.out.println("Tarjeta no  valida");
 		}
-	}
 
+		public void pagoEfectivo(Scanner sc) {
+			try {
+				System.out.println("Importe total: ");
+				double total = sc.nextDouble();
 
-	/**
-	 * Tercer método de pago, cuenta()
-	 * 
-	 * @param numeroCuenta
-	 */
-	public void cuenta(String numeroCuenta) {
-		this.importe = 0.0;
-		this.codigoPago = this.generarCodigoPago();
+				System.out.println("Cantidad a pagar en efectivo:");
+				double pago = sc.nextDouble();
 
-	}
+				Exceptions.validarImportePago(total);
 
+				if (pago >= total) {
+					double vueltas = pago - total;
 
-	/**
-	 * Método que va a generar el codigo del pedido que se le añadirá al historial
-	 * del cliente al realizarlo
-	 * 
-	 * @return
-	 */
-	public String generarCodigoPago() {
-		return String.valueOf(new Date().getTime());
+					if (vueltas > 0) {
+						System.out.println("Pago realizado. Codigo del mismo: " + generarCodigoPago());
+						System.out.println("Seleccion de pago en efectivo");
 
-	}
+						System.out.println("Se devuelven: ");
+						double[] valores = { 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01 };
+						int[] cambio = new int[12];
+
+						for (int i = 0; i < valores.length; i++) {
+							while (vueltas >= valores[i]) {
+								vueltas -= valores[i];
+								cambio[i]++;
+							}
+						}
+
+						String[] nombres = { "Billetes de 50", "Billetes de 20", "Billetes de 10", "Billetes de 5",
+								"Monedas de 2", "Monedas de 1", "Monedas de 0.5", "Monedas de 0.2", "Monedas de 0.1",
+								"Monedas de 0.05", "Monedas de 0.02", "Monedas de 0.01" };
+
+						for (int i = 0; i < cambio.length; i++) {
+							if (cambio[i] > 0) {
+								System.out.println(cambio[i] + " " + nombres[i]);
+							}
+						}
+					} else {
+						System.out.println("No requiere cambio. Pago exacto.");
+					}
+				} else {
+					System.out.println("Cantidad ingresada menor al importe a pagar. Ingrese cantidad valida.");
+				}
+			} catch (Exceptions.ImportePagoException e) {
+				System.out.println(e.getMessage());
+			} catch (InputMismatchException e) {
+				System.out.println("Valor no valido. Ingrese un numero valido.");
+			}
+		}
+
+		// metodo para que elijan que tipo de pago quieren
+		public void elegirpago(PasarelaDePago pago, Scanner sc) {
+			System.out.println("\nForma de pagar: " + "\n1. Efectivo" + "\n2. Tarjeta" + "\n3. Pago a cuenta");
+			int decision2 = sc.nextInt();
+
+			if (decision2 == 1) {
+				pago.pagoEfectivo(sc);
+			} else if (decision2 == 2) {
+				pago.pagoTarjeta(sc);
+			} else if (decision2 == 3) {
+				pago.pagoCuenta(sc);
+			}
+		}
+
+		public void pagoCuenta(Scanner sc) {
+			try {
+				System.out.println("Seleccion de pago a cuenta");
+				System.out.println("Numero de cuenta:");
+				String numeroCuenta = sc.nextLine();
+				numeroCuenta = sc.nextLine();
+
+				Exceptions.validarNumeroCuenta(numeroCuenta);
+
+				System.out.println("Numero de telefono:");
+				int telefono = sc.nextInt();
+
+				Exceptions.validarTelefono(telefono);
+
+				System.out.println("Pago realizado. Codigo del mismo: " + generarCodigoPago());
+				importe = 0;
+				codigoPago = String.valueOf((new Date()).getTime());
+
+			} catch (Exceptions.NumeroCuentaInvalidoException e) {
+				System.out.println(e.getMessage());
+
+			} catch (InputMismatchException e) {
+				System.out.println("Valor no valido. Ingrese numero valido.");
+
+			} catch (Exceptions.TelefonoInvalidoException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+		private String generarCodigoPago() {
+			return String.valueOf(new Date().getTime());
+		}
 }
